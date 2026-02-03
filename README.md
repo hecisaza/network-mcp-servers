@@ -56,6 +56,8 @@ Key Benefits:
 
 Official MCP server from Juniper for interacting with Junos OS devices.
 
+| Attribute | Details |
+|-----------|---------|
 | Repository | [github.com/Juniper/junos-mcp-server](https://github.com/Juniper/junos-mcp-server) |
 | Maintainer | Juniper Networks |
 | Protocol | SSH (Key-based authentication recommended) |
@@ -79,6 +81,8 @@ Resources:
 
 Enterprise-grade MCP server for Cisco Catalyst Center (formerly DNA Center) integration.
 
+| Attribute | Details |
+|-----------|---------|
 | Documentation | [Cisco Support Docs](https://www.cisco.com/c/en/us/support/docs/cloud-systems-management/catalyst-center/223278-harness-the-power-of-mcp-servers.html) |
 | Maintainer | Cisco |
 | Integration | ServiceNow, HashiCorp Vault, OPA |
@@ -95,6 +99,8 @@ Features:
 
 MCP server for managing Cisco Meraki cloud-managed networks.
 
+| Attribute | Details |
+|-----------|---------|
 | Blog Post | [Cisco Learning Blog - Wrangling the Wild West of MCP Servers](https://blogs.cisco.com/learning/wrangling-the-wild-west-of-mcp-servers) |
 | Maintainer | Cisco |
 | API | Meraki Dashboard API |
@@ -110,6 +116,8 @@ Features:
 
 Containerized MCP server using Cisco's pyATS framework.
 
+| Attribute | Details |
+|-----------|---------|
 | PulseMCP | [pulsemcp.com/servers/automateyournetwork-pyats-network-automation](https://www.pulsemcp.com/servers/automateyournetwork-pyats-network-automation) |
 | Maintainer | John Capobianco (AutomateYourNetwork) |
 | Framework | pyATS/Genie |
@@ -127,6 +135,8 @@ Features:
 
 MCP server for Arista CloudVision network management platform.
 
+| Attribute | Details |
+|-----------|---------|
 | PulseMCP | [pulsemcp.com/servers/noredistribution-arista-cloudvision](https://www.pulsemcp.com/servers/noredistribution-arista-cloudvision) |
 | Maintainer | noredistribution (Community) |
 | API | CloudVision API |
@@ -149,6 +159,8 @@ Resources:
 
 CLI-based network automation using the Scrapli library.
 
+| Attribute | Details |
+|-----------|---------|
 | Framework | Scrapli |
 | Creator | Carl Montanari |
 | Transport | SSH, Telnet, NETCONF |
@@ -175,6 +187,8 @@ Resources:
 
 Network automation using the popular Netmiko library.
 
+| Attribute | Details |
+|-----------|---------|
 | MCP.so | [mcp.so/server/mcp-server-netmiko/melihteke](https://mcp.so/server/mcp-server-netmiko/melihteke) |
 | Maintainer | melihteke (Community) |
 | Framework | Netmiko |
@@ -198,6 +212,8 @@ Features:
 
 YANG-based network device configuration via Puppet Enterprise.
 
+| Attribute | Details |
+|-----------|---------|
 | Documentation | [Puppet Blog - Build Tasks for Network Devices](https://www.puppet.com/blog/puppet-edge-code-assist) |
 | Maintainer | Puppet (Perforce) |
 | Integration | VS Code, GitHub Copilot |
@@ -222,6 +238,8 @@ Features:
 
 Full read/write access to NetBox IPAM/DCIM.
 
+| Attribute | Details |
+|-----------|---------|
 | Repository | [github.com/alexkiwi1/netbox-mcp-rw](https://github.com/alexkiwi1/netbox-mcp-rw) |
 | Maintainer | alexkiwi1 (Community) |
 | Framework | FastMCP |
@@ -242,6 +260,8 @@ Resources:
 
 Official read-only MCP server from NetBox Labs.
 
+| Attribute | Details |
+|-----------|---------|
 | Maintainer | NetBox Labs |
 | Access | Read-only (safe for production) |
 
@@ -258,6 +278,8 @@ Features:
 
 Enterprise orchestration platform with governance and compliance.
 
+| Attribute | Details |
+|-----------|---------|
 | Website | [itential.com/cloud-platform/itential-mcp-server](https://www.itential.com/cloud-platform/itential-mcp-server/) |
 | Maintainer | Itential |
 | Protocol | MCP (stdio, HTTP) |
@@ -290,6 +312,8 @@ Resources:
 
 OSPF/IS-IS topology visualization with LLM integration.
 
+| Attribute | Details |
+|-----------|---------|
 | Website | [topolograph.alyrica.net](https://topolograph.alyrica.net/) |
 | Repository | topolograph-mcp-server |
 | Maintainer | Alyrica |
@@ -455,7 +479,7 @@ This is a community-maintained list. Contributions are welcome!
 
 ### Suggest an Addition
 
-Know of a network infrastructure MCP server not listed here? Open an issue or submit a PR!
+Know of a network infrastructure MCP server not listed here? [Open an issue](https://github.com/hecisaza/network-mcp-servers/issues) or submit a PR!
 
 ## License
 
