@@ -1,4 +1,4 @@
-# Network Infrastructure MCP Servers: Complete Guide 2026
+# Network Infrastructure MCP Servers
 
 A curated list of Model Context Protocol (MCP) servers for network infrastructure automation, enabling AI agents to interact with network devices, management platforms, and automation tools.
 
@@ -473,9 +473,9 @@ This is a community-maintained list. Contributions are welcome!
 
 ### How to Contribute
 
-- **Add a new MCP server**: Submit a PR with details about the server, including repository link, maintainer, supported platforms, and features.
-- **Update existing entries**: If you notice outdated information, please submit a correction.
-- **Share use cases**: Real-world examples help the community understand practical applications.
+- **Add a new MCP server:** Submit a PR with details about the server, including repository link, maintainer, supported platforms, and features.
+- **Update existing entries:** If you notice outdated information, please submit a correction.
+- **Share use cases:** Real-world examples help the community understand practical applications.
 
 ### Suggest an Addition
 
@@ -491,6 +491,6 @@ Thanks to all the maintainers and contributors of these MCP servers who are adva
 
 ---
 
-**Last Updated**: February 2026
+**Last Updated:** February 2026
 
-**Maintained by**: the Network Automation Community
+**Maintained by** the Network Automation Community
