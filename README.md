@@ -17,9 +17,15 @@ A curated list of Model Context Protocol (MCP) servers for network infrastructur
   - [Cisco](#cisco)
   - [Arista](#arista)
 - [Multi-Vendor MCP Servers](#multi-vendor-mcp-servers)
-- [Network Management Platforms](#network-management-platforms)
+- [Observability and Monitoring](#observability-and-monitoring)
+- [Wireless and Campus](#wireless-and-campus)
+- [Security and Firewalls](#security-and-firewalls)
+- [Data Center](#data-center)
+- [Network Source of Truth](#network-source-of-truth)
 - [Orchestration Platforms](#orchestration-platforms)
 - [Topology and Visualization](#topology-and-visualization)
+- [Multi-Server Suites](#multi-server-suites)
+- [Watch List](#watch-list)
 - [Use Cases](#use-cases)
 - [Getting Started](#getting-started)
 - [Security Considerations](#security-considerations)
@@ -85,6 +91,26 @@ Official MCP server from Juniper for interacting with Junos OS devices.
 
 ---
 
+#### Juniper Mist MCP Server (Beta)
+
+Official hosted MCP server for the Juniper Mist cloud — no local install required.
+
+| Attribute | Details |
+|-----------|---------|
+| **Documentation** | [Juniper Mist MCP Server with Claude Desktop (Beta)](https://www.juniper.net/documentation/us/en/software/mist/mist-aiops/shared-content/topics/concept/juniper-mist-mcp-claude.html) |
+| **Maintainer** | Juniper Networks |
+| **Endpoint** | `https://mcp.ai.juniper.net/mcp/mist` |
+| **Auth** | Bearer token (Mist Cloud API token) + `X-Mist-Base-URL` header, optional `X-Mist-Org-ID` |
+
+**Features:**
+- Manage, monitor, and troubleshoot Mist organizations
+- Site and organization status queries
+- Client and network issue troubleshooting
+
+> ⚠️ Juniper's own docs warn this server can expose sensitive data such as PSKs, RADIUS secrets, and SNMP credentials to the AI assistant. Scope tokens carefully.
+
+---
+
 ### Cisco
 
 #### Cisco Catalyst Center MCP Server
@@ -139,6 +165,26 @@ Containerized MCP server using Cisco's pyATS framework.
 - Network monitoring via SSH
 - Containerized deployment
 - Cisco device support (IOS, IOS-XE, NX-OS, IOS-XR)
+
+---
+
+#### Cisco ThousandEyes MCP Server (Official)
+
+Official MCP server for ThousandEyes network and internet monitoring.
+
+| Attribute | Details |
+|-----------|---------|
+| **Repository** | [github.com/CiscoDevNet/ThousandEyes-MCP-Server-official](https://github.com/CiscoDevNet/ThousandEyes-MCP-Server-official) |
+| **Maintainer** | Cisco (CiscoDevNet) |
+| **Transport** | HTTP/SSE and HTTP streamable |
+| **Auth** | OAuth bearer token, OAuth2 dynamic client registration |
+
+**Features:**
+- List tests and retrieve test details; run instant tests
+- Search alerts, events, and internet outages
+- BGP test results, path visualization, endpoint agent metrics
+- Metric anomaly detection and aggregated metrics
+- AI-generated explanations of test results
 
 ---
 
@@ -244,9 +290,146 @@ YANG-based network device configuration via Puppet Enterprise.
 
 ---
 
-## Network Management Platforms
+## Observability and Monitoring
 
-### NetBox MCP Server (Read-Write)
+### Splunk MCP Server (Official)
+
+Official MCP server from Splunk, distributed as a Splunkbase app.
+
+| Attribute | Details |
+|-----------|---------|
+| **Splunkbase** | [splunkbase.splunk.com/app/7931](https://splunkbase.splunk.com/app/7931) |
+| **Repository** | [github.com/CiscoDevNet/Splunk-MCP-Server-official](https://github.com/CiscoDevNet/Splunk-MCP-Server-official) |
+| **Maintainer** | Splunk (Cisco) — "Splunk Supported · Beta" |
+| **Supported** | Splunk Enterprise and Splunk Cloud Platform 8.0–10.2 |
+
+**Tools:**
+- `generate_spl` — natural language to SPL query generation
+- `run_splunk_query` — execute SPL searches and retrieve results
+- `get_splunk_info`, `get_indexes`, `get_index_info` — instance and index metadata
+- `get_saved_searches` — discover knowledge objects
+
+**Features:**
+- Respects existing Splunk role-based access control
+- Audit logging and input validation
+- v1.0.1 released February 2026
+
+**Resources:**
+- [Splunk MCP product page](https://www.splunk.com/en_us/products/model-context-protocol.html)
+- [Splunk Docs - MCP Server for Splunk platform](https://help.splunk.com/en/splunk-cloud-platform/mcp-server-for-splunk-platform)
+
+---
+
+## Wireless and Campus
+
+### HPE Aruba Networking Central MCP Server
+
+Read-only MCP server for HPE Aruba Networking Central (documented on HPE's developer portal, but explicitly **not** an officially supported HPE product).
+
+| Attribute | Details |
+|-----------|---------|
+| **Documentation** | [developer.arubanetworks.com/new-central/docs/central-mcp-server](https://developer.arubanetworks.com/new-central/docs/central-mcp-server) |
+| **Repository** | [github.com/KarthikSKumar98/central-mcp-server](https://github.com/KarthikSKumar98/central-mcp-server) |
+| **Access** | Read-only — cannot modify configuration or network state |
+
+**Features:**
+- 25 tools across 10 categories reaching 85+ Central API endpoints
+- Site/device health, AP/switch/gateway monitoring, client history
+- Alerts, event logs, network tests, port diagnostics
+- 12 pre-built investigation workflows
+
+---
+
+### HPE Networking Unified MCP Server
+
+Community server combining Juniper Mist, Aruba Central, and HPE GreenLake in one container.
+
+| Attribute | Details |
+|-----------|---------|
+| **Repository** | [github.com/nowireless4u/hpe-networking-mcp](https://github.com/nowireless4u/hpe-networking-mcp) |
+| **Maintainer** | nowireless4u (Community) |
+
+---
+
+## Security and Firewalls
+
+### PAN-OS MCP Servers (Community)
+
+Community MCP servers for Palo Alto Networks firewalls.
+
+| Attribute | Details |
+|-----------|---------|
+| **Repositories** | [github.com/cdot65/pan-os-mcp](https://github.com/cdot65/pan-os-mcp) · [github.com/apius-tech/Palo-MCP](https://github.com/apius-tech/Palo-MCP) |
+| **Maintainers** | cdot65, apius-tech (Community) |
+| **API** | PAN-OS XML/REST API |
+
+---
+
+### Fortinet Embedded MCP (FortiWeb / FortiManager)
+
+Fortinet ships MCP capability inside its products rather than as a sidecar server.
+
+| Attribute | Details |
+|-----------|---------|
+| **FortiWeb** | [MCP Protocol - FortiWeb 8.0 Administration Guide](https://docs.fortinet.com/document/fortiweb/8.0.6/administration-guide/97697/mcp-protocol) |
+| **FortiManager** | [MCP framework for FortiAI agentic assistants - FortiManager 8.0](https://docs.fortinet.com/document/fortimanager/8.0.0/new-features/850974/the-model-context-protocol-mcp-framework-used-by-fortiai-agentic-assistants-and-features-on-fortimanager) |
+| **Maintainer** | Fortinet |
+
+---
+
+## Data Center
+
+### Nexus Dashboard MCP Server
+
+Community MCP server for Cisco Nexus Dashboard with enterprise guardrails.
+
+| Attribute | Details |
+|-----------|---------|
+| **Repository** | [github.com/beye91/nexus-dashboard-mcp](https://github.com/beye91/nexus-dashboard-mcp) |
+| **Maintainer** | beye91 (Community) |
+| **License** | Apache 2.0 |
+
+**Features:**
+- 638+ operations across 5 Nexus Dashboard APIs
+- Read-only by default; write operations require explicit enablement
+- RBAC, encrypted credentials, audit logging, LDAP integration
+- Web-based admin interface; Docker deployment with PostgreSQL
+
+---
+
+## Network Source of Truth
+
+### NetBox Platform MCP Server (Official)
+
+Fully managed MCP server from NetBox Labs, currently in public preview on NetBox Cloud (NetBox Enterprise support planned).
+
+| Attribute | Details |
+|-----------|---------|
+| **Documentation** | [netboxlabs.com/docs/cloud/platform-mcp-server](https://netboxlabs.com/docs/cloud/platform-mcp-server/) |
+| **Maintainer** | NetBox Labs |
+| **Access** | Read **and** write (CRUD, bulk ops) by plan tier; read-only mode on request |
+| **Auth** | NetBox v2 API tokens (`nbt_*`) over HTTP bearer |
+
+**Features:**
+- Query, search, and model discovery
+- GraphQL support, CRUD and bulk operations
+- IP address management and cable tracing
+- Code Mode for multi-step workflows; branching and change management
+
+---
+
+### NetBox MCP Server (Community)
+
+Lightweight open-source NetBox MCP server.
+
+| Attribute | Details |
+|-----------|---------|
+| **Repository** | [github.com/netboxlabs/netbox-mcp-server](https://github.com/netboxlabs/netbox-mcp-server) |
+| **Maintainer** | NetBox Labs (community project) |
+
+---
+
+### NetBox MCP Server (Read-Write, Community)
 
 Full read/write access to NetBox IPAM/DCIM.
 
@@ -268,20 +451,20 @@ Full read/write access to NetBox IPAM/DCIM.
 
 ---
 
-### NetBox MCP Server (Official - Read-Only)
+### Nautobot MCP Server (Official)
 
-Official read-only MCP server from NetBox Labs.
+Official MCP server from Network to Code for the Nautobot source of truth (available to Nautobot customers).
 
 | Attribute | Details |
 |-----------|---------|
-| **Maintainer** | NetBox Labs |
-| **Access** | Read-only (safe for production) |
+| **Documentation** | [docs.nautobot.com/projects/nautobot-mcp-server](https://docs.nautobot.com/projects/nautobot-mcp-server/en/stable/) |
+| **Maintainer** | Network to Code |
+| **Version** | v1.0 |
 
 **Features:**
-- Query device inventory
-- Retrieve IP allocations
-- Site and tenant information
-- Safe production deployment
+- Natural language queries over devices, IPAM, and VLANs
+- Authenticated API access as a secure middleware layer
+- Claude Code, Claude Desktop, and GitHub Copilot integration guides
 
 ---
 
@@ -344,6 +527,36 @@ OSPF/IS-IS topology visualization with LLM integration.
 - Path calculation and prediction
 - Network failure forecasting
 - Automated troubleshooting
+
+---
+
+## Multi-Server Suites
+
+### Network MCP Docker Suite
+
+Docker-based suite of ten MCP servers for AI-driven network operations, featured on the Cisco Switzerland Technology Blog.
+
+| Attribute | Details |
+|-----------|---------|
+| **Repository** | [github.com/pamosima/network-mcp-docker-suite](https://github.com/pamosima/network-mcp-docker-suite) |
+| **Maintainer** | pamosima (Community) |
+| **Latest Release** | v1.4.3 (May 2026) |
+
+**Included servers:**
+Meraki, NetBox, Catalyst Center, IOS XE (SSH), ThousandEyes, ISE, Splunk, Prometheus, ClickHouse, GitLab
+
+**Resources:**
+- [Network MCP Docker Suite - Cisco Switzerland Technology Blog](https://gblogs.cisco.com/ch-tech/network-mcp-docker-suite/)
+
+---
+
+## Watch List
+
+Vendors pushing agentic AI for network operations but without a public MCP server yet:
+
+- **ScienceLogic** — the Skylar One platform is heavily agentic-AI focused, but no public MCP server or MCP interface has been announced as of July 2026.
+- **SolarWinds** — no official network-monitoring MCP server announced.
+- **Arista** — CloudVision coverage remains community-maintained (see above); no official Arista MCP server yet.
 
 ---
 
@@ -486,16 +699,19 @@ pip install -r requirements.txt
 - [The Role of MCP in Scaling Agentic Network Automation](https://www.nanites.ai/post/the-role-of-mcp-servers-in-scaling-agentic-network-automation) - Nanites AI
 - [Automating Network Lab Tasks with MCP Server and LLM](https://medium.com/@rvisnu/automating-network-lab-tasks-with-an-mcp-server-and-llm-assistance-chapter-2-d94c61986549) - Medium
 - [Top 10 MCP Servers to Automate Your Infrastructure in 2026](https://medium.com/devops-ai-decoded/top-10-mcp-servers-to-automate-your-infrastructure-in-2026-5ef175318ac2) - Medium
+- [The Ultimate MCP Guide for Network Automation: 56 Essential MCP Servers](https://www.itential.com/resource/guide/the-ultimate-mcp-guide-for-network-automation/) - Itential
 
 ### MCP Directories
 
 - [PulseMCP](https://www.pulsemcp.com/) - MCP server directory and discovery
 - [MCP.so](https://mcp.so/) - MCP server registry
+- [Glama MCP Servers](https://glama.ai/mcp/servers) - MCP server directory with inspection tooling
+- [mcpservers.org](https://mcpservers.org/) - Awesome MCP servers directory
 
 ### Official Documentation
 
 - [Model Context Protocol Specification](https://modelcontextprotocol.io/)
-- [Anthropic MCP Documentation](https://docs.anthropic.com/en/docs/agents-and-tools/mcp)
+- [Anthropic MCP Documentation](https://docs.claude.com/en/docs/agents-and-tools/mcp)
 
 ---
 
@@ -529,6 +745,6 @@ Thanks to all the maintainers and contributors of these MCP servers who are adva
 
 ---
 
-*Last Updated: February 2026*
+*Last Updated: July 2026*
 
 *Maintained by the Network Automation Community*
